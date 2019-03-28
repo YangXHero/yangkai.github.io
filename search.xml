@@ -4,31 +4,6 @@
   
     
     <entry>
-      <title>ThreadPoolTaskExecutor</title>
-      <link href="/2019/03/21/SpringBoot-ThreadPoolTaskExecutor%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
-      <url>/2019/03/21/SpringBoot-ThreadPoolTaskExecutor%E7%BA%BF%E7%A8%8B%E6%B1%A0/</url>
-      
-        <content type="html"><![CDATA[<blockquote><p>ThreadPoolTaskExecutor是一个Spring的线程池技术，它是使用jdk中的java.util.concurrent.ThreadPoolExecutor进行实现。 </p></blockquote><h4 id="ThreadPoolTaskExecutor的参数："><a href="#ThreadPoolTaskExecutor的参数：" class="headerlink" title="ThreadPoolTaskExecutor的参数："></a>ThreadPoolTaskExecutor的参数：</h4><pre><code>int corePoolSize:线程池维护线程的最小数量. int maximumPoolSize:线程池维护线程的最大数量. long keepAliveTime:空闲线程的存活时间. TimeUnit unit: 时间单位,现有纳秒,微秒,毫秒,秒枚举值. BlockingQueue&lt;Runnable&gt; workQueue:持有等待执行的任务队列. RejectedExecutionHandler handler: 用来拒绝一个任务的执行，有两种情况会发生这种情况。     一是在execute方法中若addIfUnderMaximumPoolSize(command)为false，即线程池已经饱和；     二是在execute方法中, 发现runState!=RUNNING || poolSize == 0,即已经shutdown,就调用ensureQueuedTaskHandled(Runnable command)，在该方法中有可能调用reject。</code></pre><h4 id="ThredPoolTaskExcutor的处理流程："><a href="#ThredPoolTaskExcutor的处理流程：" class="headerlink" title="ThredPoolTaskExcutor的处理流程："></a>ThredPoolTaskExcutor的处理流程：</h4><pre><code>1.当池子大小小于corePoolSize，就新建线程，并处理请求2.当池子大小等于corePoolSize，把请求放入workQueue中，池子里的空闲线程就去workQueue中取任务并处理3.当workQueue放不下任务时，就新建线程入池，并处理请求，如果池子大小撑到了maximumPoolSize，就用RejectedExecutionHandler来做拒绝处理4.当池子的线程数大于corePoolSize时，多余的线程会等待keepAliveTime长时间，如果无请求可处理就自行销毁其会优先创建  CorePoolSiz 线程， 当继续增加线程时，先放入Queue中，当 CorePoolSiz  和 Queue 都满的时候，就增加创建新线程，当线程达到MaxPoolSize的时候，就会抛出错 误 org.springframework.core.task.TaskRejectedException另外MaxPoolSize的设定如果比系统支持的线程数还要大时，会抛出java.lang.OutOfMemoryError: unable to create new native thread 异常。</code></pre><h4 id="Reject策略预定义有四种："><a href="#Reject策略预定义有四种：" class="headerlink" title="Reject策略预定义有四种："></a>Reject策略预定义有四种：</h4><pre><code>(1)ThreadPoolExecutor.AbortPolicy策略，是默认的策略,处理程序遭到拒绝将抛出运行时 RejectedExecutionException。 (2)ThreadPoolExecutor.CallerRunsPolicy策略 ,调用者的线程会执行该任务,如果执行器已关闭,则丢弃. (3)ThreadPoolExecutor.DiscardPolicy策略，不能执行的任务将被丢弃. (4)ThreadPoolExecutor.DiscardOldestPolicy策略，如果执行程序尚未关闭，则位于工作队列头部的任务将被删除，然后重试执行程序（如果再次失败，则重复此过程）.</code></pre><h4 id="使用。"><a href="#使用。" class="headerlink" title="使用。"></a>使用。</h4><h5 id="SpringBoot-Config"><a href="#SpringBoot-Config" class="headerlink" title="SpringBoot  Config"></a>SpringBoot  Config</h5><h6 id="创建，初始化。"><a href="#创建，初始化。" class="headerlink" title="创建，初始化。"></a>创建，初始化。</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  默认线程池线程池</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: yangkai</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>: 13:59 2019/03/28</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span>: org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ThreadPoolTaskExecutor <span class="title">defaultThreadPool</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ThreadPoolTaskExecutor executor = <span class="keyword">new</span> ThreadPoolTaskExecutor();</span><br><span class="line">    <span class="comment">//核心线程数目</span></span><br><span class="line">    executor.setCorePoolSize(<span class="number">5</span>);</span><br><span class="line">    <span class="comment">//指定最大线程数</span></span><br><span class="line">    executor.setMaxPoolSize(<span class="number">15</span>);</span><br><span class="line">    <span class="comment">//队列中最大的数目</span></span><br><span class="line">    executor.setQueueCapacity(<span class="number">10</span>);</span><br><span class="line">    <span class="comment">//线程名称前缀</span></span><br><span class="line">    executor.setThreadNamePrefix(<span class="string">"apiThreadPool_"</span>);</span><br><span class="line">    <span class="comment">//rejection-policy：当pool已经达到max size的时候，如何处理新任务</span></span><br><span class="line">    <span class="comment">//CALLER_RUNS：不在新线程中执行任务，而是由调用者所在的线程来执行</span></span><br><span class="line">    <span class="comment">//对拒绝task的处理策略</span></span><br><span class="line">    executor.setRejectedExecutionHandler(<span class="keyword">new</span> ThreadPoolExecutor.CallerRunsPolicy());</span><br><span class="line">    <span class="comment">//线程空闲后的最大存活时间</span></span><br><span class="line">    executor.setKeepAliveSeconds(<span class="number">60</span>);</span><br><span class="line">    <span class="comment">//加载</span></span><br><span class="line">    executor.initialize();</span><br><span class="line">    <span class="keyword">return</span> executor;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h6 id="使用方式。"><a href="#使用方式。" class="headerlink" title="使用方式。"></a>使用方式。</h6><pre><code>第一种方式：@Async 注解。    注： @Async所修饰的函数不要定义为static类型，这样异步调用不会生效第二种方式：    1.IOC 注入Bean        /** 通过注解引入配置 */        @Resource(name = &quot;defaultThreadPool&quot;)        private ThreadPoolTaskExecutor executor;    2.executor.execute(); 调用。</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> Java </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Java SpringBoot </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>单点登录问题</title>
       <link href="/2019/03/21/%E5%85%B3%E4%BA%8E%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98/"/>
       <url>/2019/03/21/%E5%85%B3%E4%BA%8E%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98/</url>
@@ -46,6 +21,31 @@
         <tags>
             
             <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ThreadPoolTaskExecutor</title>
+      <link href="/2019/03/21/SpringBoot-ThreadPoolTaskExecutor%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
+      <url>/2019/03/21/SpringBoot-ThreadPoolTaskExecutor%E7%BA%BF%E7%A8%8B%E6%B1%A0/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>ThreadPoolTaskExecutor是一个Spring的线程池技术，它是使用jdk中的java.util.concurrent.ThreadPoolExecutor进行实现。 </p></blockquote><h4 id="ThreadPoolTaskExecutor的参数："><a href="#ThreadPoolTaskExecutor的参数：" class="headerlink" title="ThreadPoolTaskExecutor的参数："></a>ThreadPoolTaskExecutor的参数：</h4><pre><code>int corePoolSize:线程池维护线程的最小数量. int maximumPoolSize:线程池维护线程的最大数量. long keepAliveTime:空闲线程的存活时间. TimeUnit unit: 时间单位,现有纳秒,微秒,毫秒,秒枚举值. BlockingQueue&lt;Runnable&gt; workQueue:持有等待执行的任务队列. RejectedExecutionHandler handler: 用来拒绝一个任务的执行，有两种情况会发生这种情况。     一是在execute方法中若addIfUnderMaximumPoolSize(command)为false，即线程池已经饱和；     二是在execute方法中, 发现runState!=RUNNING || poolSize == 0,即已经shutdown,就调用ensureQueuedTaskHandled(Runnable command)，在该方法中有可能调用reject。</code></pre><h4 id="ThredPoolTaskExcutor的处理流程："><a href="#ThredPoolTaskExcutor的处理流程：" class="headerlink" title="ThredPoolTaskExcutor的处理流程："></a>ThredPoolTaskExcutor的处理流程：</h4><pre><code>1.当池子大小小于corePoolSize，就新建线程，并处理请求2.当池子大小等于corePoolSize，把请求放入workQueue中，池子里的空闲线程就去workQueue中取任务并处理3.当workQueue放不下任务时，就新建线程入池，并处理请求，如果池子大小撑到了maximumPoolSize，就用RejectedExecutionHandler来做拒绝处理4.当池子的线程数大于corePoolSize时，多余的线程会等待keepAliveTime长时间，如果无请求可处理就自行销毁其会优先创建  CorePoolSiz 线程， 当继续增加线程时，先放入Queue中，当 CorePoolSiz  和 Queue 都满的时候，就增加创建新线程，当线程达到MaxPoolSize的时候，就会抛出错 误 org.springframework.core.task.TaskRejectedException另外MaxPoolSize的设定如果比系统支持的线程数还要大时，会抛出java.lang.OutOfMemoryError: unable to create new native thread 异常。</code></pre><h4 id="Reject策略预定义有四种："><a href="#Reject策略预定义有四种：" class="headerlink" title="Reject策略预定义有四种："></a>Reject策略预定义有四种：</h4><pre><code>(1)ThreadPoolExecutor.AbortPolicy策略，是默认的策略,处理程序遭到拒绝将抛出运行时 RejectedExecutionException。 (2)ThreadPoolExecutor.CallerRunsPolicy策略 ,调用者的线程会执行该任务,如果执行器已关闭,则丢弃. (3)ThreadPoolExecutor.DiscardPolicy策略，不能执行的任务将被丢弃. (4)ThreadPoolExecutor.DiscardOldestPolicy策略，如果执行程序尚未关闭，则位于工作队列头部的任务将被删除，然后重试执行程序（如果再次失败，则重复此过程）.</code></pre><h4 id="使用。"><a href="#使用。" class="headerlink" title="使用。"></a>使用。</h4><h5 id="SpringBoot-Config"><a href="#SpringBoot-Config" class="headerlink" title="SpringBoot  Config"></a>SpringBoot  Config</h5><h6 id="创建，初始化。"><a href="#创建，初始化。" class="headerlink" title="创建，初始化。"></a>创建，初始化。</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  默认线程池线程池</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: yangkai</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>: 13:59 2019/03/28</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span>: org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ThreadPoolTaskExecutor <span class="title">defaultThreadPool</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ThreadPoolTaskExecutor executor = <span class="keyword">new</span> ThreadPoolTaskExecutor();</span><br><span class="line">    <span class="comment">//核心线程数目</span></span><br><span class="line">    executor.setCorePoolSize(<span class="number">5</span>);</span><br><span class="line">    <span class="comment">//指定最大线程数</span></span><br><span class="line">    executor.setMaxPoolSize(<span class="number">15</span>);</span><br><span class="line">    <span class="comment">//队列中最大的数目</span></span><br><span class="line">    executor.setQueueCapacity(<span class="number">10</span>);</span><br><span class="line">    <span class="comment">//线程名称前缀</span></span><br><span class="line">    executor.setThreadNamePrefix(<span class="string">"apiThreadPool_"</span>);</span><br><span class="line">    <span class="comment">//rejection-policy：当pool已经达到max size的时候，如何处理新任务</span></span><br><span class="line">    <span class="comment">//CALLER_RUNS：不在新线程中执行任务，而是由调用者所在的线程来执行</span></span><br><span class="line">    <span class="comment">//对拒绝task的处理策略</span></span><br><span class="line">    executor.setRejectedExecutionHandler(<span class="keyword">new</span> ThreadPoolExecutor.CallerRunsPolicy());</span><br><span class="line">    <span class="comment">//线程空闲后的最大存活时间</span></span><br><span class="line">    executor.setKeepAliveSeconds(<span class="number">60</span>);</span><br><span class="line">    <span class="comment">//加载</span></span><br><span class="line">    executor.initialize();</span><br><span class="line">    <span class="keyword">return</span> executor;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h6 id="使用方式。"><a href="#使用方式。" class="headerlink" title="使用方式。"></a>使用方式。</h6><pre><code>第一种方式：@Async 注解。    注： @Async所修饰的函数不要定义为static类型，这样异步调用不会生效第二种方式：    1.IOC 注入Bean        /** 通过注解引入配置 */        @Resource(name = &quot;defaultThreadPool&quot;)        private ThreadPoolTaskExecutor executor;    2.executor.execute(); 调用。</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java SpringBoot </tag>
             
         </tags>
       
@@ -335,31 +335,6 @@
     
     
     <entry>
-      <title>JDK安装</title>
-      <link href="/2018/04/18/JDK%E5%AE%89%E8%A3%85/"/>
-      <url>/2018/04/18/JDK%E5%AE%89%E8%A3%85/</url>
-      
-        <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=247421&auto=1&height=66"></iframe><p>注意。rpm包必须在官网或其他地址下载。直接wget 官网下载链接会报错。</p><h4 id="1-这里采用rpm安装方式。先下载rpm文件。"><a href="#1-这里采用rpm安装方式。先下载rpm文件。" class="headerlink" title="1. 这里采用rpm安装方式。先下载rpm文件。"></a>1. 这里采用rpm安装方式。先下载rpm文件。</h4><h4 id="2-下载到本地，通过shell使用rz命令上传至服务器。"><a href="#2-下载到本地，通过shell使用rz命令上传至服务器。" class="headerlink" title="2. 下载到本地，通过shell使用rz命令上传至服务器。"></a>2. 下载到本地，通过shell使用rz命令上传至服务器。</h4><pre><code>如果出现如下错误：`-bash: rz: command not found`安装lrzsz：`yum -y install lrzsz`现在就可以正常使用rz、sz命令上传、下载数据了。使用方法：上传文件: rz 会弹出对话框，选择文件上传</code></pre><h4 id="3-上传完成之后，执行命令rpm-ivh-您的jdk包。等待安装完成。安装完成之后，路径在-usr-java-下。"><a href="#3-上传完成之后，执行命令rpm-ivh-您的jdk包。等待安装完成。安装完成之后，路径在-usr-java-下。" class="headerlink" title="3. 上传完成之后，执行命令rpm -ivh 您的jdk包。等待安装完成。安装完成之后，路径在/usr/java/下。"></a>3. 上传完成之后，执行命令<code>rpm -ivh 您的jdk包</code>。等待安装完成。安装完成之后，路径在<code>/usr/java/</code>下。</h4><h4 id="4-配置环境变量。vim-etp-profile"><a href="#4-配置环境变量。vim-etp-profile" class="headerlink" title="4. 配置环境变量。vim /etp/profile"></a>4. 配置环境变量。<code>vim /etp/profile</code></h4><pre><code>在文件最下方加入：JAVA_HOME=/usr/java/jdk1.8.0_151JRE_HOME=/usr/java/jdk1.8.0_151/jreCLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/libPATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/binexport PATH</code></pre><h4 id="5-验证是否配置完成。java-version"><a href="#5-验证是否配置完成。java-version" class="headerlink" title="5. 验证是否配置完成。java -version"></a>5. 验证是否配置完成。<code>java -version</code></h4>]]></content>
-      
-      
-      <categories>
-          
-          <category> CentOS </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CentOS 服务搭建 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Jenkins使用</title>
       <link href="/2018/04/18/Jenkins%E4%BD%BF%E7%94%A8/"/>
       <url>/2018/04/18/Jenkins%E4%BD%BF%E7%94%A8/</url>
@@ -379,6 +354,31 @@
             <tag> CentOS 服务搭建 </tag>
             
             <tag> Jenkins 使用 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JDK安装</title>
+      <link href="/2018/04/18/JDK%E5%AE%89%E8%A3%85/"/>
+      <url>/2018/04/18/JDK%E5%AE%89%E8%A3%85/</url>
+      
+        <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=247421&auto=1&height=66"></iframe><p>注意。rpm包必须在官网或其他地址下载。直接wget 官网下载链接会报错。</p><h4 id="1-这里采用rpm安装方式。先下载rpm文件。"><a href="#1-这里采用rpm安装方式。先下载rpm文件。" class="headerlink" title="1. 这里采用rpm安装方式。先下载rpm文件。"></a>1. 这里采用rpm安装方式。先下载rpm文件。</h4><h4 id="2-下载到本地，通过shell使用rz命令上传至服务器。"><a href="#2-下载到本地，通过shell使用rz命令上传至服务器。" class="headerlink" title="2. 下载到本地，通过shell使用rz命令上传至服务器。"></a>2. 下载到本地，通过shell使用rz命令上传至服务器。</h4><pre><code>如果出现如下错误：`-bash: rz: command not found`安装lrzsz：`yum -y install lrzsz`现在就可以正常使用rz、sz命令上传、下载数据了。使用方法：上传文件: rz 会弹出对话框，选择文件上传</code></pre><h4 id="3-上传完成之后，执行命令rpm-ivh-您的jdk包。等待安装完成。安装完成之后，路径在-usr-java-下。"><a href="#3-上传完成之后，执行命令rpm-ivh-您的jdk包。等待安装完成。安装完成之后，路径在-usr-java-下。" class="headerlink" title="3. 上传完成之后，执行命令rpm -ivh 您的jdk包。等待安装完成。安装完成之后，路径在/usr/java/下。"></a>3. 上传完成之后，执行命令<code>rpm -ivh 您的jdk包</code>。等待安装完成。安装完成之后，路径在<code>/usr/java/</code>下。</h4><h4 id="4-配置环境变量。vim-etp-profile"><a href="#4-配置环境变量。vim-etp-profile" class="headerlink" title="4. 配置环境变量。vim /etp/profile"></a>4. 配置环境变量。<code>vim /etp/profile</code></h4><pre><code>在文件最下方加入：JAVA_HOME=/usr/java/jdk1.8.0_151JRE_HOME=/usr/java/jdk1.8.0_151/jreCLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/libPATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/binexport PATH</code></pre><h4 id="5-验证是否配置完成。java-version"><a href="#5-验证是否配置完成。java-version" class="headerlink" title="5. 验证是否配置完成。java -version"></a>5. 验证是否配置完成。<code>java -version</code></h4>]]></content>
+      
+      
+      <categories>
+          
+          <category> CentOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CentOS 服务搭建 </tag>
             
         </tags>
       
