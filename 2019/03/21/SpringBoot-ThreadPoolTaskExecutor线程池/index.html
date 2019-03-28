@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="CentOS 服务搭建," />
+  <meta name="keywords" content="Java SpringBoot," />
 
 
 
@@ -85,28 +85,18 @@
 
 
 
-<meta name="description" content="搭建自己的shadowsocks代理服务器实现科学上网。内容包括VPS购买，连接VPS，一键搭建shadowsocks，开启bbr加速，客户端配置shaodowsocks。  1. 购买VPSVPS（Virtual private server，虚拟专用服务器），个人用来搭建一些博客，跑跑脚本足够了。今天的教程就用VPS来搭建属于自己的shaodowsocks，一个人独占一条线路。 Vultr">
-<meta name="keywords" content="CentOS 服务搭建">
+<meta name="description" content="ThreadPoolTaskExecutor是一个Spring的线程池技术，它是使用jdk中的java.util.concurrent.ThreadPoolExecutor进行实现。   ####ThreadPoolTaskExecutor的参数： int corePoolSize:线程池维护线程的最小数量.  int maximumPoolSize:线程池维护线程的最大数量.  long kee">
+<meta name="keywords" content="Java SpringBoot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vultr 搭建 VPS 外网ssr服务器">
-<meta property="og:url" content="https://yangxhero.github.io/2018/11/06/Vultr-搭建-VPS外网服务器/index.html">
+<meta property="og:title" content="ThreadPoolTaskExecutor">
+<meta property="og:url" content="https://yangxhero.github.io/2019/03/21/SpringBoot-ThreadPoolTaskExecutor线程池/index.html">
 <meta property="og:site_name" content="举杯望明月">
-<meta property="og:description" content="搭建自己的shadowsocks代理服务器实现科学上网。内容包括VPS购买，连接VPS，一键搭建shadowsocks，开启bbr加速，客户端配置shaodowsocks。  1. 购买VPSVPS（Virtual private server，虚拟专用服务器），个人用来搭建一些博客，跑跑脚本足够了。今天的教程就用VPS来搭建属于自己的shaodowsocks，一个人独占一条线路。 Vultr">
+<meta property="og:description" content="ThreadPoolTaskExecutor是一个Spring的线程池技术，它是使用jdk中的java.util.concurrent.ThreadPoolExecutor进行实现。   ####ThreadPoolTaskExecutor的参数： int corePoolSize:线程池维护线程的最小数量.  int maximumPoolSize:线程池维护线程的最大数量.  long kee">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://yangxhero.github.io/2018/11/06/Vultr-搭建-VPS外网服务器/001.png">
-<meta property="og:image" content="https://yangxhero.github.io/2018/11/06/Vultr-搭建-VPS外网服务器/002.png">
-<meta property="og:image" content="https://yangxhero.github.io/2018/11/06/Vultr-搭建-VPS外网服务器/003.png">
-<meta property="og:image" content="https://yangxhero.github.io/2018/11/06/Vultr-搭建-VPS外网服务器/004.png">
-<meta property="og:image" content="https://yangxhero.github.io/2018/11/06/Vultr-搭建-VPS外网服务器/005.png">
-<meta property="og:image" content="https://yangxhero.github.io/2018/11/06/Vultr-搭建-VPS外网服务器/006.png">
-<meta property="og:image" content="https://yangxhero.github.io/2018/11/06/Vultr-搭建-VPS外网服务器/007.png">
-<meta property="og:image" content="https://yangxhero.github.io/2018/11/06/Vultr-搭建-VPS外网服务器/009.png">
-<meta property="og:image" content="https://yangxhero.github.io/2018/11/06/Vultr-搭建-VPS外网服务器/010.png">
-<meta property="og:updated_time" content="2018-11-06T05:04:36.514Z">
+<meta property="og:updated_time" content="2019-03-28T07:27:44.761Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vultr 搭建 VPS 外网ssr服务器">
-<meta name="twitter:description" content="搭建自己的shadowsocks代理服务器实现科学上网。内容包括VPS购买，连接VPS，一键搭建shadowsocks，开启bbr加速，客户端配置shaodowsocks。  1. 购买VPSVPS（Virtual private server，虚拟专用服务器），个人用来搭建一些博客，跑跑脚本足够了。今天的教程就用VPS来搭建属于自己的shaodowsocks，一个人独占一条线路。 Vultr">
-<meta name="twitter:image" content="https://yangxhero.github.io/2018/11/06/Vultr-搭建-VPS外网服务器/001.png">
+<meta name="twitter:title" content="ThreadPoolTaskExecutor">
+<meta name="twitter:description" content="ThreadPoolTaskExecutor是一个Spring的线程池技术，它是使用jdk中的java.util.concurrent.ThreadPoolExecutor进行实现。   ####ThreadPoolTaskExecutor的参数： int corePoolSize:线程池维护线程的最小数量.  int maximumPoolSize:线程池维护线程的最大数量.  long kee">
 
 
 
@@ -136,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="https://yangxhero.github.io/2018/11/06/Vultr-搭建-VPS外网服务器/"/>
+  <link rel="canonical" href="https://yangxhero.github.io/2019/03/21/SpringBoot-ThreadPoolTaskExecutor线程池/"/>
 
 
 
 
 
-  <title>Vultr 搭建 VPS 外网ssr服务器 | 举杯望明月</title>
+  <title>ThreadPoolTaskExecutor | 举杯望明月</title>
   
 
 
@@ -313,7 +303,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yangxhero.github.io/2018/11/06/Vultr-搭建-VPS外网服务器/">
+    <link itemprop="mainEntityOfPage" href="https://yangxhero.github.io/2019/03/21/SpringBoot-ThreadPoolTaskExecutor线程池/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr.Yang">
@@ -330,7 +320,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Vultr 搭建 VPS 外网ssr服务器</h1>
+          <h1 class="post-title" itemprop="name headline">ThreadPoolTaskExecutor</h1>
         
 
         <div class="post-meta">
@@ -342,8 +332,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-06T11:07:24+08:00">
-                2018-11-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-21T10:43:02+08:00">
+                2019-03-21
               </time>
             
 
@@ -365,8 +355,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CentOS/" itemprop="url" rel="index">
-                    <span itemprop="name">CentOS</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -382,7 +372,7 @@
 
           
           
-             <span id="/2018/11/06/Vultr-搭建-VPS外网服务器/" class="leancloud_visitors" data-flag-title="Vultr 搭建 VPS 外网ssr服务器">
+             <span id="/2019/03/21/SpringBoot-ThreadPoolTaskExecutor线程池/" class="leancloud_visitors" data-flag-title="ThreadPoolTaskExecutor">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -413,75 +403,38 @@
       
 
       
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=25714146&auto=1&height=66"></iframe>
-
-<blockquote><p>搭建自己的shadowsocks代理服务器实现科学上网。内容包括VPS购买，连接VPS，一键搭建shadowsocks，开启bbr加速，客户端配置shaodowsocks。</p>
+        <blockquote><p>ThreadPoolTaskExecutor是一个Spring的线程池技术，它是使用jdk中的java.util.concurrent.ThreadPoolExecutor进行实现。 </p>
 </blockquote>
-<h4 id="1-购买VPS"><a href="#1-购买VPS" class="headerlink" title="1. 购买VPS"></a>1. 购买VPS</h4><p>VPS（Virtual private server，虚拟专用服务器），个人用来搭建一些博客，跑跑脚本足够了。今天的教程就用VPS来搭建属于自己的shaodowsocks，一个人独占一条线路。</p>
-<p>Vultr是美国的一个VPS服务商。</p>
-<h5 id="1-1-新用户注册"><a href="#1-1-新用户注册" class="headerlink" title="1.1 新用户注册"></a>1.1 新用户注册</h5><p>优惠注册链接：<a href="http://www.vultr.com" target="_blank" rel="noopener">www.vultr.com</a><br><img src="/2018/11/06/Vultr-搭建-VPS外网服务器/001.png" title="注册"></p>
-<h5 id="1-2-充值。"><a href="#1-2-充值。" class="headerlink" title="1.2 充值。"></a>1.2 充值。</h5><p>因为Vultr是按小时收费的。先充值才可以用。<br>验证并登录后我们会跳转到充值界面，或者从Billing-&gt;Make Patment进入：<br><img src="/2018/11/06/Vultr-搭建-VPS外网服务器/002.png" title="充值"></p>
-<p>支持支付宝，微信等，很方便，充值10刀，按小时扣费，只要保证账户有余额，你的服务器就会一直运行。</p>
-<h5 id="1-3-购买服务器"><a href="#1-3-购买服务器" class="headerlink" title="1.3 购买服务器"></a>1.3 购买服务器</h5><img src="/2018/11/06/Vultr-搭建-VPS外网服务器/003.png" title="购买服务器">
-<p>由于2.5刀的没有ipv4。所以我直接购买的3.5刀每月的。<br><img src="/2018/11/06/Vultr-搭建-VPS外网服务器/004.png" title="购买服务器选择"><br>点击开启ipv6。然后Deploy Now 就可以了。<br><img src="/2018/11/06/Vultr-搭建-VPS外网服务器/005.png" title="购买服务器"></p>
-<h5 id="1-4-获取VPS登录信息"><a href="#1-4-获取VPS登录信息" class="headerlink" title="1.4 获取VPS登录信息"></a>1.4 获取VPS登录信息</h5><p>选择Deploy后，过个几分钟，就可以看到自己的服务器信息了，具体位置在Servers-&gt;Instances，点击选择你新建的实例：</p>
-<img src="/2018/11/06/Vultr-搭建-VPS外网服务器/006.png" title="获取登录信息">
-<h4 id="2-连接VPS"><a href="#2-连接VPS" class="headerlink" title="2. 连接VPS"></a>2. 连接VPS</h4><p>这时候开始连接我们的VPS。</p>
-<h5 id="2-1-开启防火墙端口"><a href="#2-1-开启防火墙端口" class="headerlink" title="2.1 开启防火墙端口"></a>2.1 开启防火墙端口</h5><p>这个和咱们国内的云服务器差不多。<br>点击菜单  Servers &gt;&gt; Firewall &gt;&gt; Add Firewall Group &gt;&gt; 输入描述 &gt;&gt; 编辑ipv4 规则。 &gt;&gt; Linked Instances &gt;&gt; 选择我们新建的vps。</p>
-<img src="/2018/11/06/Vultr-搭建-VPS外网服务器/007.png" title="防火墙信息">
-<h5 id="2-2-测试是否被墙。"><a href="#2-2-测试是否被墙。" class="headerlink" title="2.2 测试是否被墙。"></a>2.2 测试是否被墙。</h5><p>站内地址：<a href="/2018/11/06/Test-外网是否被墙/" title="Test 外网是否被墙">Test 外网是否被墙</a></p>
-<h5 id="2-3-Windows-Xshell-连接。"><a href="#2-3-Windows-Xshell-连接。" class="headerlink" title="2.3 Windows Xshell 连接。"></a>2.3 Windows Xshell 连接。</h5><p>在Servers Information 中。有ip 和 账号信息。直接连接就可以。</p>
-<h4 id="3-一键搭建shaodowsocks"><a href="#3-一键搭建shaodowsocks" class="headerlink" title="3. 一键搭建shaodowsocks"></a>3. 一键搭建shaodowsocks</h4><h5 id="3-1-下载一键搭建ss脚本文件（直接复制这段代码运行即可）"><a href="#3-1-下载一键搭建ss脚本文件（直接复制这段代码运行即可）" class="headerlink" title="3.1 下载一键搭建ss脚本文件（直接复制这段代码运行即可）"></a>3.1 下载一键搭建ss脚本文件（直接复制这段代码运行即可）</h5><pre><code>git clone https://github.com/flyzy2005/ss-fly
-</code></pre><img src="/2018/11/06/Vultr-搭建-VPS外网服务器/009.png" title="下载git代码">
-<p>如果提示 <code>bash: git: command not found</code>，则先安装git：<code>yum install git -y</code></p>
-<h5 id="3-2-运行搭建ssr脚本代码"><a href="#3-2-运行搭建ssr脚本代码" class="headerlink" title="3.2 运行搭建ssr脚本代码"></a>3.2 运行搭建ssr脚本代码</h5><p>听说ssr是改进版本，可以伪装成自定义的http开头，让监控着认为你是在访问百度，将实际的内容进行加密。SS是纯加密流量。所以直接搭建ssr。</p>
-<pre><code>ss-fly/ss-fly.sh -i flyzy2005.com 1024
-</code></pre><h5 id="3-3-输入对应的参数"><a href="#3-3-输入对应的参数" class="headerlink" title="3.3 输入对应的参数"></a>3.3 输入对应的参数</h5><pre><code>密码：flyzy2005.com
-端口：1024
-</code></pre><p>全部选择结束后，会看到如下界面，就说明搭建ssr成功了：</p>
-<pre><code>Congratulations, ShadowsocksR server install completed!
-Your Server IP        :你的服务器ip
-Your Server Port      :你的端口
-Your Password         :你的密码
-Your Protocol         :你的协议
-</code></pre><h5 id="3-4-相关操作命令"><a href="#3-4-相关操作命令" class="headerlink" title="3.4 相关操作命令"></a>3.4 相关操作命令</h5><pre><code>修改配置文件：vim /etc/shadowsocks.json
-停止ss服务：ssserver -c /etc/shadowsocks.json -d stop
-启动ss服务：ssserver -c /etc/shadowsocks.json -d start
-重启ss服务：ssserver -c /etc/shadowsocks.json -d restart
-</code></pre><h5 id="3-5-卸载"><a href="#3-5-卸载" class="headerlink" title="3.5 卸载"></a>3.5 卸载</h5><pre><code>ss-fly/ss-fly.sh -uninstall
-</code></pre><h4 id="4-一键开启BBR加速"><a href="#4-一键开启BBR加速" class="headerlink" title="4. 一键开启BBR加速"></a>4. 一键开启BBR加速</h4><p>BBR是Google开源的一套内核加速算法，可以让你搭建的shadowsocks/shadowsocksR速度上一个台阶，本一键搭建ss/ssr脚本支持一键升级最新版本的内核并开启BBR加速。</p>
-<p>BBR支持4.9以上的，如果低于这个版本则会自动下载最新内容版本的内核后开启BBR加速并重启，如果高于4.9以上则自动开启BBR加速，执行如下脚本命令即可自动开启BBR加速：</p>
-<pre><code>ss-fly/ss-fly.sh -bbr
-</code></pre><img src="/2018/11/06/Vultr-搭建-VPS外网服务器/010.png" title="bbr安装成功">
-<h5 id="4-1-判断bbr加速是否成功"><a href="#4-1-判断bbr加速是否成功" class="headerlink" title="4.1 判断bbr加速是否成功"></a>4.1 判断bbr加速是否成功</h5><p>判断BBR加速有没有开启成功。输入以下命令：</p>
-<pre><code>sysctl net.ipv4.tcp_available_congestion_control
-</code></pre><p>如果返回值为：</p>
-<pre><code>net.ipv4.tcp_available_congestion_control = bbr cubic reno
-</code></pre><p>后面有bbr，则说明已经开启成功了。</p>
-<h4 id="5-启动"><a href="#5-启动" class="headerlink" title="5. 启动"></a>5. 启动</h4><ul>
-<li>有两种启动方式，建议使用配置文件的方式启动</li>
-</ul>
-<p>执行<code>vim /etc/shadowsocks.json</code> 添加如下内容：</p>
-<p>多用户配置如下：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;  </span><br><span class="line"> "server":"0.0.0.0"，  </span><br><span class="line"> "local_address": "127.0.0.1",  </span><br><span class="line"> "local_port":1080,  </span><br><span class="line">  "port_password": &#123;  </span><br><span class="line">     "8388": "password",  </span><br><span class="line">     "8387": "password",  </span><br><span class="line">     "8386": "password",  </span><br><span class="line">     "8385": "password"  </span><br><span class="line"> &#125;,  </span><br><span class="line"> "timeout":300,  </span><br><span class="line"> "method":"rc4-md5",  </span><br><span class="line"> "fast_open": false  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>然后通过执行一下命令启动：</p>
-<pre><code>ssserver -c /etc/shadowsocks.json -d start
-如果要停止运行，将命令中的start改成stop。
-</code></pre><p>TIPS: 加密方式推荐使用rc4-md5，因为 RC4 比 AES 速度快好几倍，如果用在路由器上会带来显著性能提升。旧的 RC4 加密之所以不安全是因为 Shadowsocks 在每个连接上重复使用 key，没有使用 IV。现在已经重新正确实现，可以放心使用。更多可以看 issue。</p>
-<h4 id="6-开机自启"><a href="#6-开机自启" class="headerlink" title="6.开机自启"></a>6.开机自启</h4><p>编辑一下/etc/supervisord.conf文件，命令如下：<br><code>vim /etc/supervisord.conf</code></p>
-<p>把下面的内容粘贴到文件尾部的空行处，然后保存：</p>
-<pre><code>[program:shadowsocks]
-command=ssserver -c /etc/shadowsocks.json
-autostart=true
-autorestart=true
-user=root
-log_stderr=true
-logfile=/var/log/shadowsocks.log
-</code></pre><p>接下来需要编辑一下/etc/rc.local文件，请执行以下命令：</p>
-<pre><code>vi /etc/rc.local
-</code></pre><p>请把以下内容粘贴到文件中部的空白处，然后保存</p>
-<pre><code>service supervisord start
-</code></pre><p>完成以上步骤后，重启之后，shadowsock会自动运行。</p>
+<p>####ThreadPoolTaskExecutor的参数：</p>
+<pre><code>int corePoolSize:线程池维护线程的最小数量. 
+int maximumPoolSize:线程池维护线程的最大数量. 
+long keepAliveTime:空闲线程的存活时间. 
+TimeUnit unit: 时间单位,现有纳秒,微秒,毫秒,秒枚举值. 
+BlockingQueue&lt;Runnable&gt; workQueue:持有等待执行的任务队列. 
+RejectedExecutionHandler handler: 用来拒绝一个任务的执行，有两种情况会发生这种情况。 
+    一是在execute方法中若addIfUnderMaximumPoolSize(command)为false，即线程池已经饱和； 
+    二是在execute方法中, 发现runState!=RUNNING || poolSize == 0,即已经shutdown,就调用ensureQueuedTaskHandled(Runnable command)，在该方法中有可能调用reject。
+</code></pre><p>####ThredPoolTaskExcutor的处理流程：</p>
+<pre><code>1.当池子大小小于corePoolSize，就新建线程，并处理请求
+2.当池子大小等于corePoolSize，把请求放入workQueue中，池子里的空闲线程就去workQueue中取任务并处理
+3.当workQueue放不下任务时，就新建线程入池，并处理请求，如果池子大小撑到了maximumPoolSize，就用RejectedExecutionHandler来做拒绝处理
+4.当池子的线程数大于corePoolSize时，多余的线程会等待keepAliveTime长时间，如果无请求可处理就自行销毁
 
+其会优先创建  CorePoolSiz 线程， 当继续增加线程时，先放入Queue中，当 CorePoolSiz  和 Queue 都满的时候，就增加创建新线程，当线程达到MaxPoolSize的时候，就会抛出错 误 org.springframework.core.task.TaskRejectedException
+另外MaxPoolSize的设定如果比系统支持的线程数还要大时，会抛出java.lang.OutOfMemoryError: unable to create new native thread 异常。
+</code></pre><p>####Reject策略预定义有四种：<br>    (1)ThreadPoolExecutor.AbortPolicy策略，是默认的策略,处理程序遭到拒绝将抛出运行时 RejectedExecutionException。<br>    (2)ThreadPoolExecutor.CallerRunsPolicy策略 ,调用者的线程会执行该任务,如果执行器已关闭,则丢弃.<br>    (3)ThreadPoolExecutor.DiscardPolicy策略，不能执行的任务将被丢弃.<br>    (4)ThreadPoolExecutor.DiscardOldestPolicy策略，如果执行程序尚未关闭，则位于工作队列头部的任务将被删除，然后重试执行程序（如果再次失败，则重复此过程）.</p>
+<h4 id="使用。"><a href="#使用。" class="headerlink" title="使用。"></a>使用。</h4><h5 id="SpringBoot-Config"><a href="#SpringBoot-Config" class="headerlink" title="SpringBoot  Config"></a>SpringBoot  Config</h5><p>1.创建，初始化。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  默认线程池线程池</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: yangkai</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>: 13:59 2019/03/28</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span>: org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ThreadPoolTaskExecutor <span class="title">defaultThreadPool</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ThreadPoolTaskExecutor executor = <span class="keyword">new</span> ThreadPoolTaskExecutor();</span><br><span class="line">    <span class="comment">//核心线程数目</span></span><br><span class="line">    executor.setCorePoolSize(<span class="number">5</span>);</span><br><span class="line">    <span class="comment">//指定最大线程数</span></span><br><span class="line">    executor.setMaxPoolSize(<span class="number">15</span>);</span><br><span class="line">    <span class="comment">//队列中最大的数目</span></span><br><span class="line">    executor.setQueueCapacity(<span class="number">10</span>);</span><br><span class="line">    <span class="comment">//线程名称前缀</span></span><br><span class="line">    executor.setThreadNamePrefix(<span class="string">"apiThreadPool_"</span>);</span><br><span class="line">    <span class="comment">//rejection-policy：当pool已经达到max size的时候，如何处理新任务</span></span><br><span class="line">    <span class="comment">//CALLER_RUNS：不在新线程中执行任务，而是由调用者所在的线程来执行</span></span><br><span class="line">    <span class="comment">//对拒绝task的处理策略</span></span><br><span class="line">    executor.setRejectedExecutionHandler(<span class="keyword">new</span> ThreadPoolExecutor.CallerRunsPolicy());</span><br><span class="line">    <span class="comment">//线程空闲后的最大存活时间</span></span><br><span class="line">    executor.setKeepAliveSeconds(<span class="number">60</span>);</span><br><span class="line">    <span class="comment">//加载</span></span><br><span class="line">    executor.initialize();</span><br><span class="line">    <span class="keyword">return</span> executor;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2.使用方式。</p>
+<pre><code>第一种方式：@Async 注解。
+    注： @Async所修饰的函数不要定义为static类型，这样异步调用不会生效
+
+第二种方式：
+    1.IOC 注入Bean
+        /** 通过注解引入配置 */
+        @Resource(name = &quot;defaultThreadPool&quot;)
+        private ThreadPoolTaskExecutor executor;
+    2.executor.execute(); 调用。
+</code></pre>
       
     </div>
     
@@ -498,7 +451,7 @@ logfile=/var/log/shadowsocks.log
       
         <div class="post-tags">
           
-            <a href="/tags/CentOS-服务搭建/" rel="tag"># CentOS 服务搭建</a>
+            <a href="/tags/Java-SpringBoot/" rel="tag"># Java SpringBoot</a>
           
         </div>
       
@@ -511,8 +464,8 @@ logfile=/var/log/shadowsocks.log
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/26/Redis集群搭建/" rel="next" title="Redis集群搭建">
-                <i class="fa fa-chevron-left"></i> Redis集群搭建
+              <a href="/2019/03/21/关于单点登录问题/" rel="next" title="单点登录问题">
+                <i class="fa fa-chevron-left"></i> 单点登录问题
               </a>
             
           </div>
@@ -520,10 +473,6 @@ logfile=/var/log/shadowsocks.log
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/06/Test-外网是否被墙/" rel="prev" title="Test 外网是否被墙">
-                Test 外网是否被墙 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -693,7 +642,7 @@ logfile=/var/log/shadowsocks.log
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-购买VPS"><span class="nav-text">1. 购买VPS</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-新用户注册"><span class="nav-text">1.1 新用户注册</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-充值。"><span class="nav-text">1.2 充值。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3-购买服务器"><span class="nav-text">1.3 购买服务器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-4-获取VPS登录信息"><span class="nav-text">1.4 获取VPS登录信息</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-连接VPS"><span class="nav-text">2. 连接VPS</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-开启防火墙端口"><span class="nav-text">2.1 开启防火墙端口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-测试是否被墙。"><span class="nav-text">2.2 测试是否被墙。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-Windows-Xshell-连接。"><span class="nav-text">2.3 Windows Xshell 连接。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-一键搭建shaodowsocks"><span class="nav-text">3. 一键搭建shaodowsocks</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-下载一键搭建ss脚本文件（直接复制这段代码运行即可）"><span class="nav-text">3.1 下载一键搭建ss脚本文件（直接复制这段代码运行即可）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-2-运行搭建ssr脚本代码"><span class="nav-text">3.2 运行搭建ssr脚本代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-3-输入对应的参数"><span class="nav-text">3.3 输入对应的参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-4-相关操作命令"><span class="nav-text">3.4 相关操作命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-5-卸载"><span class="nav-text">3.5 卸载</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-一键开启BBR加速"><span class="nav-text">4. 一键开启BBR加速</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-1-判断bbr加速是否成功"><span class="nav-text">4.1 判断bbr加速是否成功</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-启动"><span class="nav-text">5. 启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-开机自启"><span class="nav-text">6.开机自启</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用。"><span class="nav-text">使用。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#SpringBoot-Config"><span class="nav-text">SpringBoot  Config</span></a></li></ol></li></ol></div>
             
 
           </div>
