@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="举杯望明月">
 <meta property="og:description" content="ThreadPoolTaskExecutor是一个Spring的线程池技术，它是使用jdk中的java.util.concurrent.ThreadPoolExecutor进行实现。   ThreadPoolTaskExecutor的参数：int corePoolSize:线程池维护线程的最小数量.  int maximumPoolSize:线程池维护线程的最大数量.  long keepAliv">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-28T07:31:43.632Z">
+<meta property="og:updated_time" content="2019-04-16T01:13:20.764Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ThreadPoolTaskExecutor">
 <meta name="twitter:description" content="ThreadPoolTaskExecutor是一个Spring的线程池技术，它是使用jdk中的java.util.concurrent.ThreadPoolExecutor进行实现。   ThreadPoolTaskExecutor的参数：int corePoolSize:线程池维护线程的最小数量.  int maximumPoolSize:线程池维护线程的最大数量.  long keepAliv">
@@ -420,10 +420,14 @@ RejectedExecutionHandler handler: 用来拒绝一个任务的执行，有两种�
 
 其会优先创建  CorePoolSiz 线程， 当继续增加线程时，先放入Queue中，当 CorePoolSiz  和 Queue 都满的时候，就增加创建新线程，当线程达到MaxPoolSize的时候，就会抛出错 误 org.springframework.core.task.TaskRejectedException
 另外MaxPoolSize的设定如果比系统支持的线程数还要大时，会抛出java.lang.OutOfMemoryError: unable to create new native thread 异常。
-</code></pre><h4 id="Reject策略预定义有四种："><a href="#Reject策略预定义有四种：" class="headerlink" title="Reject策略预定义有四种："></a>Reject策略预定义有四种：</h4><pre><code>(1)ThreadPoolExecutor.AbortPolicy策略，是默认的策略,处理程序遭到拒绝将抛出运行时 RejectedExecutionException。 
-(2)ThreadPoolExecutor.CallerRunsPolicy策略 ,调用者的线程会执行该任务,如果执行器已关闭,则丢弃. 
-(3)ThreadPoolExecutor.DiscardPolicy策略，不能执行的任务将被丢弃. 
-(4)ThreadPoolExecutor.DiscardOldestPolicy策略，如果执行程序尚未关闭，则位于工作队列头部的任务将被删除，然后重试执行程序（如果再次失败，则重复此过程）.
+</code></pre><h4 id="Reject策略预定义有四种："><a href="#Reject策略预定义有四种：" class="headerlink" title="Reject策略预定义有四种："></a>Reject策略预定义有四种：</h4><pre><code>(1)ThreadPoolExecutor.AbortPolicy策略，是默认的策略,
+处理程序遭到拒绝将抛出运行时 RejectedExecutionException。 
+(2)ThreadPoolExecutor.CallerRunsPolicy策略 ,
+调用者的线程会执行该任务,如果执行器已关闭,则丢弃. 
+(3)ThreadPoolExecutor.DiscardPolicy策略，
+不能执行的任务将被丢弃. 
+(4)ThreadPoolExecutor.DiscardOldestPolicy策略，如果执行程序尚未关闭，
+则位于工作队列头部的任务将被删除，然后重试执行程序（如果再次失败，则重复此过程）.
 </code></pre><h4 id="使用。"><a href="#使用。" class="headerlink" title="使用。"></a>使用。</h4><h5 id="SpringBoot-Config"><a href="#SpringBoot-Config" class="headerlink" title="SpringBoot  Config"></a>SpringBoot  Config</h5><h6 id="创建，初始化。"><a href="#创建，初始化。" class="headerlink" title="创建，初始化。"></a>创建，初始化。</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  默认线程池线程池</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: yangkai</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>: 13:59 2019/03/28</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span>: org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ThreadPoolTaskExecutor <span class="title">defaultThreadPool</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ThreadPoolTaskExecutor executor = <span class="keyword">new</span> ThreadPoolTaskExecutor();</span><br><span class="line">    <span class="comment">//核心线程数目</span></span><br><span class="line">    executor.setCorePoolSize(<span class="number">5</span>);</span><br><span class="line">    <span class="comment">//指定最大线程数</span></span><br><span class="line">    executor.setMaxPoolSize(<span class="number">15</span>);</span><br><span class="line">    <span class="comment">//队列中最大的数目</span></span><br><span class="line">    executor.setQueueCapacity(<span class="number">10</span>);</span><br><span class="line">    <span class="comment">//线程名称前缀</span></span><br><span class="line">    executor.setThreadNamePrefix(<span class="string">"apiThreadPool_"</span>);</span><br><span class="line">    <span class="comment">//rejection-policy：当pool已经达到max size的时候，如何处理新任务</span></span><br><span class="line">    <span class="comment">//CALLER_RUNS：不在新线程中执行任务，而是由调用者所在的线程来执行</span></span><br><span class="line">    <span class="comment">//对拒绝task的处理策略</span></span><br><span class="line">    executor.setRejectedExecutionHandler(<span class="keyword">new</span> ThreadPoolExecutor.CallerRunsPolicy());</span><br><span class="line">    <span class="comment">//线程空闲后的最大存活时间</span></span><br><span class="line">    executor.setKeepAliveSeconds(<span class="number">60</span>);</span><br><span class="line">    <span class="comment">//加载</span></span><br><span class="line">    executor.initialize();</span><br><span class="line">    <span class="keyword">return</span> executor;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h6 id="使用方式。"><a href="#使用方式。" class="headerlink" title="使用方式。"></a>使用方式。</h6><pre><code>第一种方式：@Async 注解。
     注： @Async所修饰的函数不要定义为static类型，这样异步调用不会生效
@@ -568,7 +572,7 @@ RejectedExecutionHandler handler: 用来拒绝一个任务的执行，有两种�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -590,7 +594,7 @@ RejectedExecutionHandler handler: 用来拒绝一个任务的执行，有两种�
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
