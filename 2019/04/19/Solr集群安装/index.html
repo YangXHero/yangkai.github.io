@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="举杯望明月">
 <meta property="og:description" content="安装环境，集群部署   IP 节点名称 Zookeeper Solr     192.168.100.21 hadoop5 zookeeper-3.4.14 solr-7.7.1.tgz   192.168.100.22 hadoop6 zookeeper-3.4.14 solr-7.7.1.tgz   192.168.100.23 hadoop7 zookeeper-3.4.14 solr-7.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-19T09:01:14.485Z">
+<meta property="og:updated_time" content="2019-04-30T06:11:46.924Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Solr集群安装">
 <meta name="twitter:description" content="安装环境，集群部署   IP 节点名称 Zookeeper Solr     192.168.100.21 hadoop5 zookeeper-3.4.14 solr-7.7.1.tgz   192.168.100.22 hadoop6 zookeeper-3.4.14 solr-7.7.1.tgz   192.168.100.23 hadoop7 zookeeper-3.4.14 solr-7.">
@@ -437,13 +437,13 @@
 <li>tar -zxvf solr-7.7.1.tgz</li>
 <li><p>tar zxf solr-7.7.1.tgz solr-7.7.1/bin/install_solr_service.sh –strip-components=2</p>
 <pre><code>上一个命令将install_solr_service.sh脚本从存档中提取到当前目录中
+
+mkdir /opt/module/solr2 
+mkdir /opt/module/solr
 </code></pre></li>
-<li><p>mkdir /opt/module/solr2 </p>
-</li>
-<li>mkdir /opt/module/solr</li>
 <li><p>运行服务安装脚本:</p>
-<pre><code>bash ./install_solr_service.sh solr-7.7.1.tgz -i /opt/module/solr -d /opt/module/solr/solrname -u solr -s solr -p 8983
-bash ./install_solr_service.sh solr-7.7.1.tgz -i /opt/module/solr2 -d /opt/module/solr2/solrname -u solr -s solr2 -p 8984
+<pre><code>bash ./install_solr_service.sh solr-7.7.1.tgz -i /opt/module/solr -d /opt/module/solr/solrhome -u solr -s solr -p 8983
+bash ./install_solr_service.sh solr-7.7.1.tgz -i /opt/module/solr2 -d /opt/module/solr2/solrhome -u solr -s solr2 -p 8984
 </code></pre></li>
 <li><p>修改对应jetty服务的端口8983/8984</p>
 <pre><code>vi  /opt/module/solr/solrhome/data/solr.xml 
@@ -555,6 +555,10 @@ cp ext.dic IKAnalyzer.cfg.xml stopword.dic /opt/module/solr2/solr-7.7.1/server/s
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/04/23/FastDFS-搭建集群/" rel="prev" title="FastDFS-搭建集群">
+                FastDFS-搭建集群 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -645,7 +649,7 @@ cp ext.dic IKAnalyzer.cfg.xml stopword.dic /opt/module/solr2/solr-7.7.1/server/s
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
