@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="举杯望明月">
 <meta property="og:description" content="安装环境，集群部署   IP 节点名称 Zookeeper Solr     192.168.100.21 hadoop5 zookeeper-3.4.14 solr-7.7.1.tgz   192.168.100.22 hadoop6 zookeeper-3.4.14 solr-7.7.1.tgz   192.168.100.23 hadoop7 zookeeper-3.4.14 solr-7.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-30T06:11:46.924Z">
+<meta property="og:updated_time" content="2019-04-30T06:39:06.886Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Solr集群安装">
 <meta name="twitter:description" content="安装环境，集群部署   IP 节点名称 Zookeeper Solr     192.168.100.21 hadoop5 zookeeper-3.4.14 solr-7.7.1.tgz   192.168.100.22 hadoop6 zookeeper-3.4.14 solr-7.7.1.tgz   192.168.100.23 hadoop7 zookeeper-3.4.14 solr-7.">
@@ -472,7 +472,11 @@ esac
 </ol>
 <h4 id="关联solr集群与zk集群"><a href="#关联solr集群与zk集群" class="headerlink" title="关联solr集群与zk集群"></a>关联solr集群与zk集群</h4><ol>
 <li>vi /etc/default/solr.in.sh</li>
-<li>vi /etc/default/solr2.in.sh</li>
+<li><p>vi /etc/default/solr2.in.sh</p>
+<pre><code>修改如下信息（对应主机host注意更改）：
+ZK_HOST=&quot;node21:2181,node22:2181,node23:2181/solr&quot;
+SOLR_HOST=&quot;192.168.100.21&quot;
+</code></pre></li>
 <li><p>首次连接需要创建节点管理目录</p>
 <pre><code>./solr/bin/solr zk mkroot /solr -z hadoop5:2181,hadoop6:2181,hadoop7:2181
 </code></pre></li>
@@ -503,7 +507,8 @@ service solr2 restart
 cp ext.dic IKAnalyzer.cfg.xml stopword.dic /opt/module/solr2/solr-7.7.1/server/solr-webapp/webapp/WEB-INF/classes/
 </code></pre></li>
 <li><p>更改配置文件</p>
-<pre><code>&lt;!--IK中文分词器--&gt;
+<pre><code>vim /opt/module/solr/solr-7.7.1/server/solr/configsets/_default/conf/managed-schema
+&lt;!--IK中文分词器--&gt;
  &lt;fieldType name=&quot;text_ik&quot; class=&quot;solr.TextField&quot;&gt;  
         &lt;analyzer type=&quot;index&quot; useSmart=&quot;false&quot;
             class=&quot;org.wltea.analyzer.lucene.IKAnalyzer&quot; /&gt;
