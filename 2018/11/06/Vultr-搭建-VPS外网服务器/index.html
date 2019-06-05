@@ -102,7 +102,7 @@
 <meta property="og:image" content="https://yangxhero.github.io/2018/11/06/Vultr-搭建-VPS外网服务器/007.png">
 <meta property="og:image" content="https://yangxhero.github.io/2018/11/06/Vultr-搭建-VPS外网服务器/009.png">
 <meta property="og:image" content="https://yangxhero.github.io/2018/11/06/Vultr-搭建-VPS外网服务器/010.png">
-<meta property="og:updated_time" content="2018-11-06T05:04:36.514Z">
+<meta property="og:updated_time" content="2019-06-05T06:19:25.515Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vultr 搭建 VPS 外网ssr服务器">
 <meta name="twitter:description" content="搭建自己的shadowsocks代理服务器实现科学上网。内容包括VPS购买，连接VPS，一键搭建shadowsocks，开启bbr加速，客户端配置shaodowsocks。  1. 购买VPSVPS（Virtual private server，虚拟专用服务器），个人用来搭建一些博客，跑跑脚本足够了。今天的教程就用VPS来搭建属于自己的shaodowsocks，一个人独占一条线路。 Vultr">
@@ -431,7 +431,7 @@
 <img src="/2018/11/06/Vultr-搭建-VPS外网服务器/007.png" title="防火墙信息">
 <h5 id="2-2-测试是否被墙。"><a href="#2-2-测试是否被墙。" class="headerlink" title="2.2 测试是否被墙。"></a>2.2 测试是否被墙。</h5><p>站内地址：<a href="/2018/11/06/Test-外网是否被墙/" title="Test 外网是否被墙">Test 外网是否被墙</a></p>
 <h5 id="2-3-Windows-Xshell-连接。"><a href="#2-3-Windows-Xshell-连接。" class="headerlink" title="2.3 Windows Xshell 连接。"></a>2.3 Windows Xshell 连接。</h5><p>在Servers Information 中。有ip 和 账号信息。直接连接就可以。</p>
-<h4 id="3-一键搭建shaodowsocks"><a href="#3-一键搭建shaodowsocks" class="headerlink" title="3. 一键搭建shaodowsocks"></a>3. 一键搭建shaodowsocks</h4><h5 id="3-1-下载一键搭建ss脚本文件（直接复制这段代码运行即可）"><a href="#3-1-下载一键搭建ss脚本文件（直接复制这段代码运行即可）" class="headerlink" title="3.1 下载一键搭建ss脚本文件（直接复制这段代码运行即可）"></a>3.1 下载一键搭建ss脚本文件（直接复制这段代码运行即可）</h5><pre><code>git clone https://github.com/flyzy2005/ss-fly
+<h4 id="3-一键搭建shaodowsocks"><a href="#3-一键搭建shaodowsocks" class="headerlink" title="3. 一键搭建shaodowsocks"></a>3. 一键搭建shaodowsocks</h4><h5 id="3-1-下载一键搭建ss脚本文件（直接复制这段代码运行即可）"><a href="#3-1-下载一键搭建ss脚本文件（直接复制这段代码运行即可）" class="headerlink" title="3.1 下载一键搭建ss脚本文件（直接复制这段代码运行即可）"></a>3.1 下载一键搭建ss脚本文件（直接复制这段代码运行即可）</h5><pre><code>git clone https://github.com/lylnpu/flyzy2005-ss-fly.git
 </code></pre><img src="/2018/11/06/Vultr-搭建-VPS外网服务器/009.png" title="下载git代码">
 <p>如果提示 <code>bash: git: command not found</code>，则先安装git：<code>yum install git -y</code></p>
 <h5 id="3-2-运行搭建ssr脚本代码"><a href="#3-2-运行搭建ssr脚本代码" class="headerlink" title="3.2 运行搭建ssr脚本代码"></a>3.2 运行搭建ssr脚本代码</h5><p>听说ssr是改进版本，可以伪装成自定义的http开头，让监控着认为你是在访问百度，将实际的内容进行加密。SS是纯加密流量。所以直接搭建ssr。</p>

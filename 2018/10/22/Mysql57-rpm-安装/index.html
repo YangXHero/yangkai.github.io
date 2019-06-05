@@ -94,7 +94,7 @@
 <meta property="og:description" content="1.下载和安装mysql源先下载 mysql源安装包wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm-bash: wget: 未找到命令我们先安装下wgetyum -y install wget然后执行 wget https://dev.mysql.com/get/mysql57-communi">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://yangxhero.github.io/2018/10/22/Mysql57-rpm-安装/001.png">
-<meta property="og:updated_time" content="2018-10-22T06:40:39.677Z">
+<meta property="og:updated_time" content="2019-05-14T03:52:18.976Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql57 rpm 安装">
 <meta name="twitter:description" content="1.下载和安装mysql源先下载 mysql源安装包wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm-bash: wget: 未找到命令我们先安装下wgetyum -y install wget然后执行 wget https://dev.mysql.com/get/mysql57-communi">
@@ -414,7 +414,8 @@
 <h4 id="4-设置开机启动"><a href="#4-设置开机启动" class="headerlink" title="4.设置开机启动"></a>4.设置开机启动</h4><p>systemctl enable mysqld<br>systemctl daemon-reload</p>
 <h4 id="5-修改root本地登录密码"><a href="#5-修改root本地登录密码" class="headerlink" title="5.修改root本地登录密码"></a>5.修改root本地登录密码</h4><p>mysql安装完成之后，在/var/log/mysqld.log文件中给root生成了一个临时的默认密码。<br>vi /var/log/mysqld.log<br><img src="/2018/10/22/Mysql57-rpm-安装/001.png" title="找临时密码"><br>[root@localhost ~]#  mysql -u root -p<br>Enter password:<br>输入临时密码 进入mysql命令行；</p>
 <h4 id="6-修改密码。"><a href="#6-修改密码。" class="headerlink" title="6.修改密码。"></a>6.修改密码。</h4><p>首先，修改validate_password_policy参数的值<br>mysql&gt; set global validate_password_policy=0;<br>再修改密码的长度<br>mysql&gt; set global validate_password_length=1;<br>mysql&gt; ALTER USER ‘root‘@’localhost’ IDENTIFIED BY ‘<strong>**</strong>‘;  自定义密码。<br>Query OK, 0 rows affected (0    .00 sec)</p>
-<h4 id="7-设置允许远程登录"><a href="#7-设置允许远程登录" class="headerlink" title="7.设置允许远程登录"></a>7.设置允许远程登录</h4><p>Mysql默认不允许远程登录，我们需要设置下，并且防火墙开放3306端口；<br>mysql&gt; GRANT ALL PRIVILEGES ON <em>.</em> TO ‘root‘@’%’ IDENTIFIED BY ‘Pingan369@’ WITH GRANT OPTION;<br>Query OK, 0 rows affected, 1 warning (0.01 sec)<br>mysql&gt; exit;</p>
+<h4 id="7-设置允许远程登录"><a href="#7-设置允许远程登录" class="headerlink" title="7.设置允许远程登录"></a>7.设置允许远程登录</h4><p>Mysql默认不允许远程登录，我们需要设置下，并且防火墙开放3306端口；<br>mysql&gt; GRANT ALL PRIVILEGES ON <em>.</em> TO ‘root‘@’%’ IDENTIFIED BY ‘yzyjy123’ WITH GRANT OPTION;<br>Query OK, 0 rows affected, 1 warning (0.01 sec)<br>mysql&gt; exit;</p>
+<p>flush privileges</p>
 <h4 id="8-Mysql57-需要修改sql-mode。"><a href="#8-Mysql57-需要修改sql-mode。" class="headerlink" title="8.Mysql57 需要修改sql_mode。"></a>8.Mysql57 需要修改sql_mode。</h4><pre><code>vi /etc/my.cnf
 在[mysqld]下面添加如下列：
 sql_mode=STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
