@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>FastDFS-搭建集群</title>
-      <link href="/2019/04/23/FastDFS-%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4/"/>
-      <url>/2019/04/23/FastDFS-%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4/</url>
+      <title>Linux LVM 管理同一目录挂在多块磁盘</title>
+      <link href="/2019/06/06/Linex-LVM-%E7%AE%A1%E7%90%86%E5%90%8C%E4%B8%80%E7%9B%AE%E5%BD%95%E6%8C%82%E5%9C%A8%E5%A4%9A%E5%9D%97%E7%A3%81%E7%9B%98/"/>
+      <url>/2019/06/06/Linex-LVM-%E7%AE%A1%E7%90%86%E5%90%8C%E4%B8%80%E7%9B%AE%E5%BD%95%E6%8C%82%E5%9C%A8%E5%A4%9A%E5%9D%97%E7%A3%81%E7%9B%98/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=470759757&auto=1&height=66"></iframe><br><blockquote><p>遇到FastDFS文件服务器挂载盘会不够，就上网搜了一下挂载多块磁盘。</p></blockquote></p><h5 id="如果想操作的挂载盘已挂载，则先卸载。"><a href="#如果想操作的挂载盘已挂载，则先卸载。" class="headerlink" title="如果想操作的挂载盘已挂载，则先卸载。"></a>如果想操作的挂载盘已挂载，则先卸载。</h5><pre><code>umount -v /dev/data2umount -v /dev/data1</code></pre><h5 id="创建PV-物理卷"><a href="#创建PV-物理卷" class="headerlink" title="创建PV - 物理卷"></a>创建PV - 物理卷</h5><pre><code>pvcreate /dev/sdb1pvcreate /dev/sdc1pvscan</code></pre><h5 id="创建VG-卷组"><a href="#创建VG-卷组" class="headerlink" title="创建VG - 卷组"></a>创建VG - 卷组</h5><pre><code>创建卷组并命名  vgfast 可自行修改vgcreate vgfast /dev/sdb1 添加盘 给卷组添加盘vgextend vgfast /dev/sdc1</code></pre><h5 id="查看卷组"><a href="#查看卷组" class="headerlink" title="查看卷组"></a>查看卷组</h5><pre><code>vgs</code></pre><h5 id="创建逻辑卷-LV"><a href="#创建逻辑卷-LV" class="headerlink" title="创建逻辑卷 - LV"></a>创建逻辑卷 - LV</h5><pre><code>lvcreate -L 2.1T -n lvfast vgfast </code></pre><h5 id="格式化逻辑卷"><a href="#格式化逻辑卷" class="headerlink" title="格式化逻辑卷"></a>格式化逻辑卷</h5><pre><code>mkfs.ext4 /dev/vgdata/lvData  //格式化lvData为ext4格式。</code></pre><h5 id="挂载目录"><a href="#挂载目录" class="headerlink" title="挂载目录"></a>挂载目录</h5><pre><code>mount /dev/vgfast/lvfast /fastdfs/</code></pre>]]></content>
       
       
       <categories>
@@ -20,7 +20,7 @@
       
         <tags>
             
-            <tag> CentOS 服务搭建 </tag>
+            <tag> CentOS 管理 </tag>
             
         </tags>
       
@@ -104,31 +104,6 @@
     
     
     <entry>
-      <title>单点登录问题</title>
-      <link href="/2019/03/21/%E5%85%B3%E4%BA%8E%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98/"/>
-      <url>/2019/03/21/%E5%85%B3%E4%BA%8E%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98/</url>
-      
-        <content type="html"><![CDATA[<h4 id="单点登录"><a href="#单点登录" class="headerlink" title="单点登录"></a>单点登录</h4><pre><code>我觉得单点登录问题，分为两种。因为cookie不可以跨域存储和访问。</code></pre><blockquote><p>同域下。。一个用户只可以在一个地方登录。</p></blockquote><p> 项目中遇到过用户只可以在一端登录。登录成功后将会话信息存入redis并且返回前端（SET_COOKIE）;<br> 项目中加拦截器。比较请求携带的cookie和redis中的cookie是否一致。如果不一致，则在他出已经登录，反之，则通过。</p><blockquote><p>不同域下。</p></blockquote><p>只是确定一个公用的域，当访问的时候，倘若没有登录，则跳到登录服务器验证，返回token并保存。在跳转至访问地址。用凭证判断是否已经登录。<br>访问第二个域时。重定向到登录服务器校验是否已登陆，已登录则返回凭证供第二个服务使用。反之则登录。</p><img src="/2019/03/21/关于单点登录问题/001.jpg" title="cas">]]></content>
-      
-      
-      <categories>
-          
-          <category> Java </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Java </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>ThreadPoolTaskExecutor</title>
       <link href="/2019/03/21/SpringBoot-ThreadPoolTaskExecutor%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
       <url>/2019/03/21/SpringBoot-ThreadPoolTaskExecutor%E7%BA%BF%E7%A8%8B%E6%B1%A0/</url>
@@ -146,6 +121,31 @@
         <tags>
             
             <tag> Java SpringBoot </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>单点登录问题</title>
+      <link href="/2019/03/21/%E5%85%B3%E4%BA%8E%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98/"/>
+      <url>/2019/03/21/%E5%85%B3%E4%BA%8E%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h4 id="单点登录"><a href="#单点登录" class="headerlink" title="单点登录"></a>单点登录</h4><pre><code>我觉得单点登录问题，分为两种。因为cookie不可以跨域存储和访问。</code></pre><blockquote><p>同域下。。一个用户只可以在一个地方登录。</p></blockquote><p> 项目中遇到过用户只可以在一端登录。登录成功后将会话信息存入redis并且返回前端（SET_COOKIE）;<br> 项目中加拦截器。比较请求携带的cookie和redis中的cookie是否一致。如果不一致，则在他出已经登录，反之，则通过。</p><blockquote><p>不同域下。</p></blockquote><p>只是确定一个公用的域，当访问的时候，倘若没有登录，则跳到登录服务器验证，返回token并保存。在跳转至访问地址。用凭证判断是否已经登录。<br>访问第二个域时。重定向到登录服务器校验是否已登陆，已登录则返回凭证供第二个服务使用。反之则登录。</p><img src="/2019/03/21/关于单点登录问题/001.jpg" title="cas">]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
             
         </tags>
       
