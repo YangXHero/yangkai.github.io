@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="CentOS 服务搭建," />
+  <meta name="keywords" content="微信支付," />
 
 
 
@@ -85,18 +85,18 @@
 
 
 
-<meta name="description" content="18.8.30 更新该方式已不支持在2018.2.*以上版本。请谨慎升级。 IDEA 全称IntelliJ IDEA，是java语言开发的集成环境，IntelliJ在业界被公认为最好的java开发工具之一，尤其在智能代码助手、代码自动提示、重构、J2EE支持、Ant、JUnit、CVS整合、代码审查、 创新的GUI设计等方面的功能可以说是超常的。  ilanyu’s Blogilanyu’s在">
-<meta name="keywords" content="CentOS 服务搭建">
+<meta name="description" content="#####针对jdk1.8.44以上版本 将jre/lib/security/java.security文件中的 将 #crypto.policy=unlimited 改为 crypto.policy=unlimited 其他不变，也不需要其他权限jar ######针对jdk1.8.44以下版本，    将jre/lib/security/ 下 的 local_policy.jar和US_exp">
+<meta name="keywords" content="微信支付">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jetbrains license搭建">
-<meta property="og:url" content="https://yangxhero.github.io/2018/05/15/Jetbrains-license搭建/index.html">
+<meta property="og:title" content="微信支付签名jar包问题">
+<meta property="og:url" content="https://yangxhero.github.io/2019/04/19/微信支付签名jar包问题/index.html">
 <meta property="og:site_name" content="举杯望明月">
-<meta property="og:description" content="18.8.30 更新该方式已不支持在2018.2.*以上版本。请谨慎升级。 IDEA 全称IntelliJ IDEA，是java语言开发的集成环境，IntelliJ在业界被公认为最好的java开发工具之一，尤其在智能代码助手、代码自动提示、重构、J2EE支持、Ant、JUnit、CVS整合、代码审查、 创新的GUI设计等方面的功能可以说是超常的。  ilanyu’s Blogilanyu’s在">
+<meta property="og:description" content="#####针对jdk1.8.44以上版本 将jre/lib/security/java.security文件中的 将 #crypto.policy=unlimited 改为 crypto.policy=unlimited 其他不变，也不需要其他权限jar ######针对jdk1.8.44以下版本，    将jre/lib/security/ 下 的 local_policy.jar和US_exp">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-30T07:06:23.925Z">
+<meta property="og:updated_time" content="2019-07-05T10:32:03.361Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jetbrains license搭建">
-<meta name="twitter:description" content="18.8.30 更新该方式已不支持在2018.2.*以上版本。请谨慎升级。 IDEA 全称IntelliJ IDEA，是java语言开发的集成环境，IntelliJ在业界被公认为最好的java开发工具之一，尤其在智能代码助手、代码自动提示、重构、J2EE支持、Ant、JUnit、CVS整合、代码审查、 创新的GUI设计等方面的功能可以说是超常的。  ilanyu’s Blogilanyu’s在">
+<meta name="twitter:title" content="微信支付签名jar包问题">
+<meta name="twitter:description" content="#####针对jdk1.8.44以上版本 将jre/lib/security/java.security文件中的 将 #crypto.policy=unlimited 改为 crypto.policy=unlimited 其他不变，也不需要其他权限jar ######针对jdk1.8.44以下版本，    将jre/lib/security/ 下 的 local_policy.jar和US_exp">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="https://yangxhero.github.io/2018/05/15/Jetbrains-license搭建/"/>
+  <link rel="canonical" href="https://yangxhero.github.io/2019/04/19/微信支付签名jar包问题/"/>
 
 
 
 
 
-  <title>Jetbrains license搭建 | 举杯望明月</title>
+  <title>微信支付签名jar包问题 | 举杯望明月</title>
   
 
 
@@ -303,7 +303,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yangxhero.github.io/2018/05/15/Jetbrains-license搭建/">
+    <link itemprop="mainEntityOfPage" href="https://yangxhero.github.io/2019/04/19/微信支付签名jar包问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr.Yang">
@@ -320,7 +320,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Jetbrains license搭建</h1>
+          <h1 class="post-title" itemprop="name headline">微信支付签名jar包问题</h1>
         
 
         <div class="post-meta">
@@ -332,8 +332,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-15T10:29:16+08:00">
-                2018-05-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-19T14:04:00+08:00">
+                2019-04-19
               </time>
             
 
@@ -355,8 +355,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CentOS/" itemprop="url" rel="index">
-                    <span itemprop="name">CentOS</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -372,7 +372,7 @@
 
           
           
-             <span id="/2018/05/15/Jetbrains-license搭建/" class="leancloud_visitors" data-flag-title="Jetbrains license搭建">
+             <span id="/2019/04/19/微信支付签名jar包问题/" class="leancloud_visitors" data-flag-title="微信支付签名jar包问题">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -403,14 +403,12 @@
       
 
       
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=410654865&auto=1&height=66"></iframe>
-
-<h5 id="18-8-30-更新"><a href="#18-8-30-更新" class="headerlink" title="18.8.30 更新"></a>18.8.30 更新</h5><pre><code>该方式已不支持在2018.2.*以上版本。请谨慎升级。
-</code></pre><blockquote><p>IDEA 全称IntelliJ IDEA，是java语言开发的集成环境，IntelliJ在业界被公认为最好的java开发工具之一，尤其在智能代码助手、代码自动提示、重构、J2EE支持、Ant、JUnit、CVS整合、代码审查、 创新的GUI设计等方面的功能可以说是超常的。</p>
-</blockquote>
-<h4 id="ilanyu’s-Blog"><a href="#ilanyu’s-Blog" class="headerlink" title="ilanyu’s Blog"></a>ilanyu’s Blog</h4><p><a href="http://blog.lanyus.com/archives/174.html" target="_blank" rel="noopener">ilanyu’s</a><br>在github有操作方法。或者看本博客。</p>
-<h4 id="初次使用。"><a href="#初次使用。" class="headerlink" title="初次使用。"></a>初次使用。</h4><p>‘wget –no-check-certificate -O install.sh <a href="https://raw.githubusercontent.com/yushangcl/JetbrainsServer/master/install.sh" target="_blank" rel="noopener">https://raw.githubusercontent.com/yushangcl/JetbrainsServer/master/install.sh</a> &amp;&amp; chmod +x install.sh &amp;&amp; bash install.sh’</p>
-<h4 id="再次使用直接运行install-sh就行了。"><a href="#再次使用直接运行install-sh就行了。" class="headerlink" title="再次使用直接运行install.sh就行了。"></a>再次使用直接运行install.sh就行了。</h4><p>可以打开install.sh配置端口和其他项。</p>
+        <p>#####针对jdk1.8.44以上版本</p>
+<pre><code>将jre/lib/security/java.security文件中的
+将 #crypto.policy=unlimited
+改为 crypto.policy=unlimited
+其他不变，也不需要其他权限jar
+</code></pre><p>######针对jdk1.8.44以下版本，<br>    将jre/lib/security/ 下 的 local_policy.jar和US_export_policy.jar替换为官方网站提供了JCE无限制权限策略文件的下载：<br>    JDK6的下载地址：<br>    <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-6-download-429243.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jce-6-download-429243.html</a><br>    JDK7的下载地址：<br>    <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html</a><br>    JDK8的下载地址：<br>    <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html</a></p>
 
       
     </div>
@@ -428,7 +426,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CentOS-服务搭建/" rel="tag"># CentOS 服务搭建</a>
+            <a href="/tags/微信支付/" rel="tag"># 微信支付</a>
           
         </div>
       
@@ -441,8 +439,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/04/SSH-免密钥登录/" rel="next" title="SSH 免密钥登录">
-                <i class="fa fa-chevron-left"></i> SSH 免密钥登录
+              <a href="/2019/04/19/Zookeeper集群搭建/" rel="next" title="Zookeeper集群搭建">
+                <i class="fa fa-chevron-left"></i> Zookeeper集群搭建
               </a>
             
           </div>
@@ -451,8 +449,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/21/秒杀系统架构/" rel="prev" title="秒杀系统架构">
-                秒杀系统架构 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/19/Solr集群安装/" rel="prev" title="Solr集群安装">
+                Solr集群安装 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -516,17 +514,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -613,22 +602,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#18-8-30-更新"><span class="nav-text">18.8.30 更新</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ilanyu’s-Blog"><span class="nav-text">ilanyu’s Blog</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#初次使用。"><span class="nav-text">初次使用。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#再次使用直接运行install-sh就行了。"><span class="nav-text">再次使用直接运行install.sh就行了。</span></a></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
