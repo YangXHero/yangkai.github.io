@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="举杯望明月">
 <meta property="og:description" content="安装环境，集群部署   IP 节点名称 Zookeeper Solr     192.168.100.21 hadoop5 zookeeper-3.4.14 solr-7.7.1.tgz   192.168.100.22 hadoop6 zookeeper-3.4.14 solr-7.7.1.tgz   192.168.100.23 hadoop7 zookeeper-3.4.14 solr-7.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-30T06:39:06.886Z">
+<meta property="og:updated_time" content="2019-07-19T06:13:56.676Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Solr集群安装">
 <meta name="twitter:description" content="安装环境，集群部署   IP 节点名称 Zookeeper Solr     192.168.100.21 hadoop5 zookeeper-3.4.14 solr-7.7.1.tgz   192.168.100.22 hadoop6 zookeeper-3.4.14 solr-7.7.1.tgz   192.168.100.23 hadoop7 zookeeper-3.4.14 solr-7.">
@@ -520,7 +520,12 @@ cp ext.dic IKAnalyzer.cfg.xml stopword.dic /opt/module/solr2/solr-7.7.1/server/s
 <pre><code>sh /opt/module/solr/solr-7.7.1/server/scripts/cloud-scripts/zkcli.sh -zkhost hadoop5:2181,hadoop6:2181,hadoop7:2181 -cmd upconfig -confdir /opt/module/solr/solr-7.7.1/server/solr/configsets/_default/conf/ -confname myconf
 </code></pre></li>
 </ol>
-
+<p>比如我们修改schema.xml配置文件之后，根本不用登录zookeeper删除原有文件，文件会自动覆盖，这里直接上传即可，命令如下：</p>
+<pre><code>./server/scripts/cloud-scripts/zkcli.sh -zkhost localhost:2181 -cmd putfile /solr/configs/my_config/schema.xml ../configs/conf/schema.xml
+</code></pre><p>参数putfile指定配置文件在zookeeper上的绝对路径，这里注意是配置的路径，不是collection的路径，二者名称不相同，后面跟的是修改之后本地schema.xml配置文件的路径</p>
+<p>重新加载配置文件</p>
+<pre><code>http://localhost:8983/solr/admin/collections?action=RELOAD&amp;name=my_collection
+</code></pre>
       
     </div>
     
