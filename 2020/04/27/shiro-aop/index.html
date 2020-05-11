@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="举杯望明月">
 <meta property="og:description" content="如题，当Springboot集成Shiro时。Shiro认证ShiroRealm 中引入Service的同时，AOP对该Service有命中切面。会导致AOP失效 你若是找不到坚持下去的理由，那么你就找一个重新开始的理由，生活本来就这么简单。  AOP失效问题1234public class MyShiroRealm extends AuthorizingRealm &amp;#123;    @Auto">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-27T12:46:35.313Z">
+<meta property="og:updated_time" content="2020-05-11T08:57:21.988Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Shiro 导致AOP切面失效">
 <meta name="twitter:description" content="如题，当Springboot集成Shiro时。Shiro认证ShiroRealm 中引入Service的同时，AOP对该Service有命中切面。会导致AOP失效 你若是找不到坚持下去的理由，那么你就找一个重新开始的理由，生活本来就这么简单。  AOP失效问题1234public class MyShiroRealm extends AuthorizingRealm &amp;#123;    @Auto">
@@ -411,6 +411,8 @@
 给Shiro认证器单独写一个Service。 
 
 有别的解决方式，请联系我。共同进步。
+
+找到了。shiroRealm 中引入Service时加 @Lazy注解。
 </code></pre>
       
     </div>
