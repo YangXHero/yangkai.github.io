@@ -131,31 +131,6 @@
     
     
     <entry>
-      <title>微信支付签名jar包问题</title>
-      <link href="/2019/04/19/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E7%AD%BE%E5%90%8Djar%E5%8C%85%E9%97%AE%E9%A2%98/"/>
-      <url>/2019/04/19/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E7%AD%BE%E5%90%8Djar%E5%8C%85%E9%97%AE%E9%A2%98/</url>
-      
-        <content type="html"><![CDATA[<p>#####针对jdk1.8.44以上版本</p><pre><code>将jre/lib/security/java.security文件中的将 #crypto.policy=unlimited改为 crypto.policy=unlimited其他不变，也不需要其他权限jar</code></pre><p>######针对jdk1.8.44以下版本，<br>    将jre/lib/security/ 下 的 local_policy.jar和US_export_policy.jar替换为官方网站提供了JCE无限制权限策略文件的下载：<br>    JDK6的下载地址：<br>    <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-6-download-429243.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jce-6-download-429243.html</a><br>    JDK7的下载地址：<br>    <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html</a><br>    JDK8的下载地址：<br>    <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Java </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 微信支付 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Zookeeper集群搭建</title>
       <link href="/2019/04/19/Zookeeper%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/"/>
       <url>/2019/04/19/Zookeeper%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</url>
@@ -173,6 +148,31 @@
         <tags>
             
             <tag> Zookeeper </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>微信支付签名jar包问题</title>
+      <link href="/2019/04/19/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E7%AD%BE%E5%90%8Djar%E5%8C%85%E9%97%AE%E9%A2%98/"/>
+      <url>/2019/04/19/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E7%AD%BE%E5%90%8Djar%E5%8C%85%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<p>#####针对jdk1.8.44以上版本</p><pre><code>将jre/lib/security/java.security文件中的将 #crypto.policy=unlimited改为 crypto.policy=unlimited其他不变，也不需要其他权限jar</code></pre><p>######针对jdk1.8.44以下版本，<br>    将jre/lib/security/ 下 的 local_policy.jar和US_export_policy.jar替换为官方网站提供了JCE无限制权限策略文件的下载：<br>    JDK6的下载地址：<br>    <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-6-download-429243.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jce-6-download-429243.html</a><br>    JDK7的下载地址：<br>    <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html</a><br>    JDK8的下载地址：<br>    <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 微信支付 </tag>
             
         </tags>
       
@@ -514,6 +514,31 @@
     
     
     <entry>
+      <title>CentOS 搭建 nexus 私服</title>
+      <link href="/2018/04/18/CentOS-%E6%90%AD%E5%BB%BA-nexus-%E7%A7%81%E6%9C%8D/"/>
+      <url>/2018/04/18/CentOS-%E6%90%AD%E5%BB%BA-nexus-%E7%A7%81%E6%9C%8D/</url>
+      
+        <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=27646196&auto=1&height=66"></iframe><h4 id="1-安装JDK"><a href="#1-安装JDK" class="headerlink" title="1. 安装JDK."></a>1. 安装JDK.</h4><p>安装教程：<a href="/2018/04/18/JDK安装/" title="JDK安装">JDK安装</a></p><h4 id="2-推荐新建nexus用户管理nexus。"><a href="#2-推荐新建nexus用户管理nexus。" class="headerlink" title="2. 推荐新建nexus用户管理nexus。"></a>2. 推荐新建nexus用户管理nexus。</h4><pre><code>adduser nexuspasswd nexussu - nexus</code></pre><h4 id="3-下载nexus。本文nexus版本：2-14-8-01-下载地址"><a href="#3-下载nexus。本文nexus版本：2-14-8-01-下载地址" class="headerlink" title="3. 下载nexus。本文nexus版本：2.14.8-01  下载地址"></a>3. 下载nexus。本文nexus版本：2.14.8-01  <a href="https://www.sonatype.com/download-sonatype-trial" target="_blank" rel="noopener">下载地址</a></h4><img src="/2018/04/18/CentOS-搭建-nexus-私服/01.png" title="下载地址"><p>或者直接下载 <code>wget https://sonatype-download.global.ssl.fastly.net/nexus/oss/nexus-2.14.1-01-bundle.tar.gz</code></p><h4 id="4-解压文件：tar-zxvf-nexus文件"><a href="#4-解压文件：tar-zxvf-nexus文件" class="headerlink" title="4. 解压文件：tar -zxvf nexus文件"></a>4. 解压文件：<code>tar -zxvf nexus文件</code></h4><img src="/2018/04/18/CentOS-搭建-nexus-私服/02.png" title="解压"><p>第一个文件夹是核心文件，第二个文件夹用来存储下载下来的jar。<br><img src="/2018/04/18/CentOS-搭建-nexus-私服/03.png" title="文件夹"></p><h4 id="5-进入nexus-nexus-2-14-8-01-conf目录下，编辑nexus-properties文件，命令：vim-nexus-properties"><a href="#5-进入nexus-nexus-2-14-8-01-conf目录下，编辑nexus-properties文件，命令：vim-nexus-properties" class="headerlink" title="5. 进入nexus/nexus-2.14.8-01/conf目录下，编辑nexus.properties文件，命令：vim nexus.properties"></a>5. 进入nexus/nexus-2.14.8-01/conf目录下，编辑nexus.properties文件，命令：<code>vim nexus.properties</code></h4><img src="/2018/04/18/CentOS-搭建-nexus-私服/04.png" title="修改配置文件"><h4 id="6-进入nexus-nexus-2-14-8-01-bin目录，vim-nexus，修改启动用户。"><a href="#6-进入nexus-nexus-2-14-8-01-bin目录，vim-nexus，修改启动用户。" class="headerlink" title="6. 进入nexus/nexus-2.14.8-01/bin目录，vim nexus，修改启动用户。"></a>6. 进入nexus/nexus-2.14.8-01/bin目录，<code>vim nexus</code>，修改启动用户。</h4><img src="/2018/04/18/CentOS-搭建-nexus-私服/05.png" title="修改启动用户"><h4 id="7-启动nexus-nexus-start"><a href="#7-启动nexus-nexus-start" class="headerlink" title="7. 启动nexus  ./nexus start"></a>7. 启动nexus  <code>./nexus start</code></h4><h4 id="8-访问nexus-地址-端口-nexus"><a href="#8-访问nexus-地址-端口-nexus" class="headerlink" title="8. 访问nexus  地址:端口/nexus"></a>8. 访问nexus  <code>地址:端口/nexus</code></h4><img src="/2018/04/18/CentOS-搭建-nexus-私服/06.png" title="index"><p>搭建完成。</p><h4 id="9-maven-settings-xml文件修改。"><a href="#9-maven-settings-xml文件修改。" class="headerlink" title="9. maven settings.xml文件修改。"></a>9. maven settings.xml文件修改。</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--一、localRepository--&gt;</span></span><br></pre></td></tr></table></figure><img src="/2018/04/18/CentOS-搭建-nexus-私服/07.png" title="localRepository"><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--二、mirrors下新建mirror地址--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>internal-repository<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>Maven Repository Manager running on www.ctfo.com<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://你的私服地址/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>*<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--三、maven项目 deploey jar文件。（IDE）--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--在maven settings.xml文件，新增server配置。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">id</span>&gt;</span>thirdparty<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">password</span>&gt;</span>admin123<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--在项目pom文件加--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">distributionManagement</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>thirdparty<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://你的私服地址/nexus/content/repositories/thirdparty/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">distributionManagement</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--然后deploey就到了第三方库。--&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> CentOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CentOS 服务搭建 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JDK安装</title>
       <link href="/2018/04/18/JDK%E5%AE%89%E8%A3%85/"/>
       <url>/2018/04/18/JDK%E5%AE%89%E8%A3%85/</url>
@@ -558,31 +583,6 @@
             <tag> CentOS 服务搭建 </tag>
             
             <tag> Jenkins 使用 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>CentOS 搭建 nexus 私服</title>
-      <link href="/2018/04/18/CentOS-%E6%90%AD%E5%BB%BA-nexus-%E7%A7%81%E6%9C%8D/"/>
-      <url>/2018/04/18/CentOS-%E6%90%AD%E5%BB%BA-nexus-%E7%A7%81%E6%9C%8D/</url>
-      
-        <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=27646196&auto=1&height=66"></iframe><h4 id="1-安装JDK"><a href="#1-安装JDK" class="headerlink" title="1. 安装JDK."></a>1. 安装JDK.</h4><p>安装教程：<a href="/2018/04/18/JDK安装/" title="JDK安装">JDK安装</a></p><h4 id="2-推荐新建nexus用户管理nexus。"><a href="#2-推荐新建nexus用户管理nexus。" class="headerlink" title="2. 推荐新建nexus用户管理nexus。"></a>2. 推荐新建nexus用户管理nexus。</h4><pre><code>adduser nexuspasswd nexussu - nexus</code></pre><h4 id="3-下载nexus。本文nexus版本：2-14-8-01-下载地址"><a href="#3-下载nexus。本文nexus版本：2-14-8-01-下载地址" class="headerlink" title="3. 下载nexus。本文nexus版本：2.14.8-01  下载地址"></a>3. 下载nexus。本文nexus版本：2.14.8-01  <a href="https://www.sonatype.com/download-sonatype-trial" target="_blank" rel="noopener">下载地址</a></h4><img src="/2018/04/18/CentOS-搭建-nexus-私服/01.png" title="下载地址"><p>或者直接下载 <code>wget https://sonatype-download.global.ssl.fastly.net/nexus/oss/nexus-2.14.1-01-bundle.tar.gz</code></p><h4 id="4-解压文件：tar-zxvf-nexus文件"><a href="#4-解压文件：tar-zxvf-nexus文件" class="headerlink" title="4. 解压文件：tar -zxvf nexus文件"></a>4. 解压文件：<code>tar -zxvf nexus文件</code></h4><img src="/2018/04/18/CentOS-搭建-nexus-私服/02.png" title="解压"><p>第一个文件夹是核心文件，第二个文件夹用来存储下载下来的jar。<br><img src="/2018/04/18/CentOS-搭建-nexus-私服/03.png" title="文件夹"></p><h4 id="5-进入nexus-nexus-2-14-8-01-conf目录下，编辑nexus-properties文件，命令：vim-nexus-properties"><a href="#5-进入nexus-nexus-2-14-8-01-conf目录下，编辑nexus-properties文件，命令：vim-nexus-properties" class="headerlink" title="5. 进入nexus/nexus-2.14.8-01/conf目录下，编辑nexus.properties文件，命令：vim nexus.properties"></a>5. 进入nexus/nexus-2.14.8-01/conf目录下，编辑nexus.properties文件，命令：<code>vim nexus.properties</code></h4><img src="/2018/04/18/CentOS-搭建-nexus-私服/04.png" title="修改配置文件"><h4 id="6-进入nexus-nexus-2-14-8-01-bin目录，vim-nexus，修改启动用户。"><a href="#6-进入nexus-nexus-2-14-8-01-bin目录，vim-nexus，修改启动用户。" class="headerlink" title="6. 进入nexus/nexus-2.14.8-01/bin目录，vim nexus，修改启动用户。"></a>6. 进入nexus/nexus-2.14.8-01/bin目录，<code>vim nexus</code>，修改启动用户。</h4><img src="/2018/04/18/CentOS-搭建-nexus-私服/05.png" title="修改启动用户"><h4 id="7-启动nexus-nexus-start"><a href="#7-启动nexus-nexus-start" class="headerlink" title="7. 启动nexus  ./nexus start"></a>7. 启动nexus  <code>./nexus start</code></h4><h4 id="8-访问nexus-地址-端口-nexus"><a href="#8-访问nexus-地址-端口-nexus" class="headerlink" title="8. 访问nexus  地址:端口/nexus"></a>8. 访问nexus  <code>地址:端口/nexus</code></h4><img src="/2018/04/18/CentOS-搭建-nexus-私服/06.png" title="index"><p>搭建完成。</p><h4 id="9-maven-settings-xml文件修改。"><a href="#9-maven-settings-xml文件修改。" class="headerlink" title="9. maven settings.xml文件修改。"></a>9. maven settings.xml文件修改。</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--一、localRepository--&gt;</span></span><br></pre></td></tr></table></figure><img src="/2018/04/18/CentOS-搭建-nexus-私服/07.png" title="localRepository"><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--二、mirrors下新建mirror地址--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>internal-repository<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>Maven Repository Manager running on www.ctfo.com<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://你的私服地址/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>*<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--三、maven项目 deploey jar文件。（IDE）--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--在maven settings.xml文件，新增server配置。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">id</span>&gt;</span>thirdparty<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">password</span>&gt;</span>admin123<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--在项目pom文件加--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">distributionManagement</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>thirdparty<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://你的私服地址/nexus/content/repositories/thirdparty/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">distributionManagement</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--然后deploey就到了第三方库。--&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> CentOS </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CentOS 服务搭建 </tag>
             
         </tags>
       
